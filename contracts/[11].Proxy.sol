@@ -5,6 +5,9 @@ pragma solidity ^0.8.19;
 // web3.utils.sha3('initialize()').substr(0, 10)
 // If the initialization function is different for your contract, change the initialize() to your contract's function name. initilizaton function is just the constructor for proxy contract, bc it can't have a constuctor.
 
+// When using `call`, caller and callee have their own separate states (this is expected by default)
+// - When using `delegatecall`, the callee uses the caller’s state, which means that the contract you are calling with `delegatecall` uses the state of the caller contract.
+
 contract Proxy {
     // Code position in storage is keccak256("PROXIABLE") = "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7"
     constructor(bytes memory constructData, address contractLogic) {
