@@ -73,6 +73,7 @@ function _resolverModuleArg(address _resolverAddress, bytes memory _resolverData
         return (canExec, execData);
     }
 
+    // need to pay gas from chainlink automation dashboard
     function exec() external {
         require((block.timestamp - lastTimeStamp) > interval);
         lastTimeStamp = block.timestamp;
